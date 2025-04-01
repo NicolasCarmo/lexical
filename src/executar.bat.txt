@@ -1,0 +1,16 @@
+@echo off
+cd /d %~dp0
+
+echo 🔧 Compilando o projeto...
+javac -d . lexico/src/*.java
+
+if %errorlevel% neq 0 (
+    echo ❌ Erro na compilação.
+    pause
+    exit /b
+)
+
+echo ▶️ Executando o analisador...
+java -cp . lexico.src.CLexicalAnalyzer
+
+pause
